@@ -3,7 +3,6 @@ Rails
   .routes
   .draw do
     get 'friendships/create', to: 'friendships#create', as: 'add_friend'
-
     get 'friendships/destroy'
     root 'posts#index'
 

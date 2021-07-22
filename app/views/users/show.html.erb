@@ -5,6 +5,19 @@
     <ul class="posts">
       <%= render @posts %>
     </ul>
-    <%= link_to 'Add Friend', friendships_path(:friends_id => @user), :method => :post %>
+    <% if @user != current_user %>
+    <%= link_to 'Add Friend', add_friend_path(:friend_id => @user)%>
+    <% else %>
+    <% end %>
+    <% if @user == current_user %>    
+     <h3>Friends</h3>
+     <% current_user.friends.each do |friend| %>
+      <tr>
+        <td><%= friend.name %> <%= link_to 'remove', friendships_destroy_path(:friend_id => friend) %> </td>
+        
+      </tr>
+    <% end %>
+    <% else %>
+    <% end %>
   </article>
 </section>

@@ -1,20 +1,27 @@
 class FriendshipsController < ApplicationController
   def create
-    @friend = User.find(params[:id])
     @friendship =
-      current_user.friendships.new(
-        user_id: params[:user_id],
+      current_user.friendships.build(
+        user_id: current_user.id,
+        friend_id: params[:friend_id],
         confirmed: false,
-        friend_id: @friend.id,
       )
 
     if @friendship.save
-      redirect_to users_path, notice: 'Friend request was successfully created.'
+      redirect_to root_path, notice: 'Friend request was successfully created.'
     else
-      timeline_posts
-      render :index, alert: 'Friend request was not created.'
+      redirect_to root_path,
+                  notice: 'Friend request was not successfully created.'
     end
   end
 
-  def destroy; end
+  def destroy
+    @friendship =
+      current_user.friendships.find_by(
+        friend_id: params[:friend_id],
+        user_id: current_user.id,
+      )
+    @friendship.destroy
+    redirect_to current_user, notice: 'Friend was successfully removed'
+  end
 end

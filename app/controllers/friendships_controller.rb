@@ -21,6 +21,15 @@ class FriendshipsController < ApplicationController
         friend_id: params[:friend_id],
         user_id: current_user.id,
       )
+    if @friendship == nil
+      @friendship =
+        current_user.inverse_friendships.find_by(
+          friend_id: current_user.id,
+          user_id: params[:friend_id],
+        )
+    else
+
+    end
     @friendship.destroy
     redirect_to current_user, notice: 'Friend was successfully removed'
   end

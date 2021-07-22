@@ -4,6 +4,7 @@ Rails
   .draw do
     get 'friendships/create', to: 'friendships#create', as: 'add_friend'
     get 'friendships/destroy'
+    get 'friendships/update'
     root 'posts#index'
 
     devise_for :users

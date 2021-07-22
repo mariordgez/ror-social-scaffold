@@ -8,9 +8,10 @@ class FriendshipsController < ApplicationController
       )
 
     if @friendship.save
-      redirect_to root_path, notice: 'Friend request was successfully created.'
+      redirect_to current_user,
+                  notice: 'Friend request was successfully created.'
     else
-      redirect_to root_path,
+      redirect_to current_user,
                   notice: 'Friend request was not successfully created.'
     end
   end
@@ -32,5 +33,21 @@ class FriendshipsController < ApplicationController
     end
     @friendship.destroy
     redirect_to current_user, notice: 'Friend was successfully removed'
+  end
+
+  def update
+    @friendship =
+      current_user.inverse_friendships.find_by(
+        friend_id: current_user.id,
+        user_id: params[:friend_id],
+      )
+    @friendship.confirmed = true
+    if @friendship.save
+      redirect_to current_user,
+                  notice: 'Friend request was successfully accepted.'
+    else
+      redirect_to current_user,
+                  notice: 'Friend request was not successfully accepted.'
+    end
   end
 end

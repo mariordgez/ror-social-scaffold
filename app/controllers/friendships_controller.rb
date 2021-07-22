@@ -4,7 +4,7 @@ class FriendshipsController < ApplicationController
       current_user.friendships.build(
         user_id: current_user.id,
         friend_id: params[:friend_id],
-        confirmed: false,
+        confirmed: false
       )
 
     if @friendship.save
@@ -20,16 +20,14 @@ class FriendshipsController < ApplicationController
     @friendship =
       current_user.friendships.find_by(
         friend_id: params[:friend_id],
-        user_id: current_user.id,
+        user_id: current_user.id
       )
-    if @friendship == nil
+    if @friendship.nil?
       @friendship =
         current_user.inverse_friendships.find_by(
           friend_id: current_user.id,
-          user_id: params[:friend_id],
+          user_id: params[:friend_id]
         )
-    else
-
     end
     @friendship.destroy
     redirect_to current_user, notice: 'Friend was successfully removed'
@@ -39,7 +37,7 @@ class FriendshipsController < ApplicationController
     @friendship =
       current_user.inverse_friendships.find_by(
         friend_id: current_user.id,
-        user_id: params[:friend_id],
+        user_id: params[:friend_id]
       )
     @friendship.confirmed = true
     if @friendship.save

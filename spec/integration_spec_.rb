@@ -13,19 +13,19 @@ RSpec.describe 'User', type: :system do
       User.create(
         email: 'user1@example.com',
         password: 'password',
-        name: 'user1',
+        name: 'user1'
       )
 
       User.create(
         email: 'user2@example.com',
         password: 'password',
-        name: 'user2',
+        name: 'user2'
       )
 
       User.create(
         email: 'user3@example.com',
         password: 'password',
-        name: 'user3',
+        name: 'user3'
       )
     end
 
@@ -44,17 +44,17 @@ RSpec.describe 'User', type: :system do
       User.create(
         email: 'user1@example.com',
         password: 'password',
-        name: 'user1',
+        name: 'user1'
       )
       User.create(
         email: 'user2@example.com',
         password: 'password',
-        name: 'user2',
+        name: 'user2'
       )
       User.create(
         email: 'user3@example.com',
         password: 'password',
-        name: 'user3',
+        name: 'user3'
       )
     end
 
@@ -72,7 +72,7 @@ RSpec.describe 'User', type: :system do
       visit user_session_path
       click_link('Timeline')
       expect(
-        page,
+        page
       ).to have_content 'You need to sign in or sign up before continuing.'
     end
 
@@ -98,7 +98,7 @@ RSpec.describe 'User', type: :system do
       User.create(
         email: 'user1@example.com',
         password: 'password',
-        name: 'user1',
+        name: 'user1'
       )
     end
 
@@ -120,7 +120,7 @@ RSpec.describe 'User', type: :system do
       User.create(
         email: 'user1@example.com',
         password: 'password',
-        name: 'user1',
+        name: 'user1'
       )
     end
 
@@ -141,17 +141,17 @@ RSpec.describe 'User', type: :system do
       User.create(
         email: 'user1@example.com',
         password: 'password',
-        name: 'user1',
+        name: 'user1'
       )
       User.create(
         email: 'user2@example.com',
         password: 'password',
-        name: 'user2',
+        name: 'user2'
       )
       User.create(
         email: 'user3@example.com',
         password: 'password',
-        name: 'user3',
+        name: 'user3'
       )
     end
 

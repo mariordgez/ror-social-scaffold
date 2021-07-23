@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
         User.new(
           email: 'mario123456@gmail.com',
           password: '123456',
-          name: 'mario',
+          name: 'mario'
         )
       expect(user).to be_valid
     end
@@ -37,7 +37,7 @@ RSpec.describe Post, type: :model do
         User.new(
           email: 'mario123456@gmail.com',
           password: '123456',
-          name: 'mario',
+          name: 'mario'
         )
       post = user.posts.new(content: 'this is a post')
       expect(post).to be_valid
@@ -47,7 +47,7 @@ RSpec.describe Post, type: :model do
         User.new(
           email: 'mario123456@gmail.com',
           password: '123456',
-          name: 'mario',
+          name: 'mario'
         )
       post = user.posts.new(content: '')
       expect(post).to_not be_valid
@@ -63,7 +63,7 @@ RSpec.describe Like, type: :model do
           id: 1,
           email: 'mario123456@gmail.com',
           password: '123456',
-          name: 'mario',
+          name: 'mario'
         )
       post = user.posts.new(content: 'this is a post', id: 1)
       like = user.likes.new(user: user, post: post)
@@ -75,7 +75,7 @@ RSpec.describe Like, type: :model do
           id: 1,
           email: 'mario123456@gmail.com',
           password: '123456',
-          name: 'mario',
+          name: 'mario'
         )
       post = user.posts.create(content: 'this is a post', id: 1)
       like = user.likes.create(user: user, post: post)
@@ -93,14 +93,14 @@ RSpec.describe Friendship, type: :model do
           id: 1,
           email: 'mario123456@gmail.com',
           password: '123456',
-          name: 'mario',
+          name: 'mario'
         )
       user2 =
         User.create(
           id: 2,
           email: 'alberto123456@gmail.com',
           password: '123456',
-          name: 'alberto',
+          name: 'alberto'
         )
       friendship =
         user1.friendships.build(friend_id: user2.id, confirmed: false)
@@ -112,14 +112,14 @@ RSpec.describe Friendship, type: :model do
           id: 1,
           email: 'mario123456@gmail.com',
           password: '123456',
-          name: 'mario',
+          name: 'mario'
         )
       user2 =
         User.create(
           id: 2,
           email: 'alberto123456@gmail.com',
           password: '123456',
-          name: 'alberto',
+          name: 'alberto'
         )
       friendship =
         user1.friendships.create(friend_id: user2.id, confirmed: false)

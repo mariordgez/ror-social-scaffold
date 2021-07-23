@@ -23,19 +23,13 @@
     </ul>  
      <h2>Friends</h2>
      <ul>
-     <% @friendships.each do |friend| %>
+     <% current_user.all_friends.each do |friend| %>
       <li><span class="posts"> 
-       <% username = User.find(friend.friend_id) %> 
+       <% username = User.find(friend) %> 
      <%= username.name %> 
       <%= link_to 'Remove Friend', friendships_destroy_path(:friend_id => username) %>
       </li> 
     <% end %>
-    <% @inverse_friendships.each do |friend| %>
-      <li><span class="posts"> 
-      <% username = User.find(friend.user_id) %> 
-     <%= username.name %>   
-      <%= link_to 'Remove Friend', friendships_destroy_path(:friend_id => username) %> 
-      <% end %>
     </ul>
     <% else %>
     <% end %>

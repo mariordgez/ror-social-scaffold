@@ -5,7 +5,7 @@ class Friendship < ApplicationRecord
   scope :unconfirmed_friend, -> { where(confirmed: false) }
 
   def confirm_friend
-    self.update_attributes(confirmed: true)
+    self.update_attribute(:confirmed, true)
     Friendship.create!(
       friend_id: self.user_id,
       user_id: self.friend_id,

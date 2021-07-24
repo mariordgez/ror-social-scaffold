@@ -12,7 +12,7 @@
     <% if @user == current_user %>  
      <h2>Friend requests</h2>
      <ul>
-    <% @user_req.each do |friend| %>
+    <% @friend_requests.each do |friend| %>
       <li><span class="posts"> 
      <% username = User.find(friend.user_id) %> 
      <%= username.name %> 
@@ -23,11 +23,10 @@
     </ul>  
      <h2>Friends</h2>
      <ul>
-     <% current_user.all_friends.each do |friend| %>
+     <% @friends.each do |friend| %>
       <li><span class="posts"> 
-       <% username = User.find(friend) %> 
-     <%= username.name %> 
-      <%= link_to 'Remove Friend', friendships_destroy_path(:friend_id => username) %>
+     <%= friend.name %> 
+      <%= link_to 'Remove Friend', friendships_destroy_path(:friend_id => friend) %>
       </li> 
     <% end %>
     </ul>

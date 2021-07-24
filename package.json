@@ -1,8 +1,9 @@
 {
   "name": "ror_social_scaffold",
   "private": true,
-  "dependencies": {},
   "devDependencies": {
+    "@prettier/plugin-ruby": "^1.6.1",
+    "prettier": "^2.3.2",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-csstree-validator": "^1.9.0",

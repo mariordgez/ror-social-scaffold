@@ -5,5 +5,32 @@
     <ul class="posts">
       <%= render @posts %>
     </ul>
+    <% if @user != current_user %>
+    <%= link_to 'Add Friend', add_friend_path(:friend_id => @user)%>
+    <% else %>
+    <% end %>
+    <% if @user == current_user %>  
+     <h2>Friend requests</h2>
+     <ul>
+    <% @friend_requests.each do |friend| %>
+      <li><span class="posts"> 
+     <% username = User.find(friend.user_id) %> 
+     <%= username.name %> 
+       <%= link_to 'Accept Request', friendships_update_path(:friend_id => username) %>
+      <%= link_to 'Deny Request', friendships_destroy_path(:friend_id => username) %>
+      </li> 
+    <% end %>
+    </ul>  
+     <h2>Friends</h2>
+     <ul>
+     <% @friends.each do |friend| %>
+      <li><span class="posts"> 
+     <%= friend.name %> 
+      <%= link_to 'Remove Friend', friendships_destroy_path(:friend_id => friend) %>
+      </li> 
+    <% end %>
+    </ul>
+    <% else %>
+    <% end %>
   </article>
 </section>

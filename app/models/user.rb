@@ -37,14 +37,7 @@ class User < ApplicationRecord
   has_many :friend_requests, through: :inverted_friendships
 
   def all_friends
-    friends_array =
-      friendships.map do |friendship|
-        friendship.friend_id if friendship.confirmed
-      end
-    friends_array +=
-      inverse_friendships.map do |friendship|
-        friendship.user_id if friendship.confirmed
-      end
+    friends_array = friends.map { |friendship| friendship.id }
     friends_array.compact
   end
 end

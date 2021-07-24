@@ -2,7 +2,7 @@
   Name: <%= user.name %>
   <span class="profile-link">
     <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-    <% if !(current_user.all_friends.include?(user.id) or (current_user.id == user.id)) %>
+    <% if !(current_user.friends.include?(user) or (current_user.id == user.id)) %>
     <%= link_to 'Add Friend', add_friend_path(:friend_id => user), class: 'profile-link' %>
      <% else %>
     <% end %>

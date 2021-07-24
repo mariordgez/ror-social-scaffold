@@ -9,7 +9,7 @@
 
 ## Live Demo
 
-TBA
+https://mighty-refuge-21843.herokuapp.com
 
 ## Getting Started
 
@@ -65,11 +65,16 @@ Open `http://localhost:3000/` in your browser.
 
 ### Deployment
 
-TBA
+This app was deployed using Heroku, the link to the live demo is:
+https://mighty-refuge-21843.herokuapp.com
 
 ## Authors
 
-TBA
+👤 **Mario Alberto Rodriguez Cota**
+
+- GitHub: [@mariordgez](https://github.com/mariordgez)
+- Twitter: [@MarioRo75396624](https://twitter.com/MarioRo75396624)
+- LinkedIn: [Mario](https://www.linkedin.com/in/mario-alberto-rodriguez-cota-a2860a205/)
 
 ## 🤝 Contributing
 

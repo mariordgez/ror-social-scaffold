@@ -17,19 +17,21 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    @friendship =
+    @other_user = User.find(params[:friend_id])
+    @friendship1 =
       current_user.friendships.find_by(
-        friend_id: params[:friend_id],
         user_id: current_user.id,
+        friend_id: params[:friend_id],
       )
-    if @friendship.nil?
-      @friendship =
-        current_user.inverse_friendships.find_by(
-          friend_id: current_user.id,
-          user_id: params[:friend_id],
-        )
-    end
-    @friendship.destroy
+
+    @friendship2 =
+      @other_user.friendships.find_by(
+        user_id: @other_user.id,
+        friend_id: current_user.id,
+      )
+    @friendship2.destroy
+    @friendship1.destroy
+
     redirect_to current_user, notice: 'Friend was successfully removed'
   end
 
